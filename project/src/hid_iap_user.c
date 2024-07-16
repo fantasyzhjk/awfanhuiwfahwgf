@@ -54,7 +54,8 @@ void iap_respond(uint8_t *res_buf, uint16_t iap_cmd, uint16_t result);
   * @param  none
   * @retval none
   */
-void jump_to_app(uint32_t address)
+[[clang::optnone]]
+void __attribute__((optnone)) jump_to_app(uint32_t address) 
 {
   uint32_t stkptr, jumpaddr;
   stkptr = *(uint32_t *)address;

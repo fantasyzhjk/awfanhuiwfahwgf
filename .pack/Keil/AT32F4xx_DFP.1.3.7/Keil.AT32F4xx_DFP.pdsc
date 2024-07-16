@@ -1,0 +1,2411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Keil</vendor>
+  <name>AT32F4xx_DFP</name>
+  <description>ArteryTek AT32F4 Series Device Support,Drivers</description>
+  <url></url>
+  <supportContact>support@keil.com</supportContact>
+
+  <releases>
+    <release version="1.3.7" date="2021-05-19">
+      Just increase version
+    </release>
+    <release version="1.3.6" date="2021-03-18">
+      Update svd files and StdPeriphs Library
+    </release>
+    <release version="1.3.5" date="2021-01-18">
+      Update svd files and StdPeriphs Library
+    </release>
+    <release version="1.3.4" date="2020-10-15">
+      Add AT32F407AV[CG]T7 and AT32F421PF[48]P7
+    </release>
+    <release version="1.3.3" date="2020-09-15">
+      Update all *.FLM, increase sysclk to 48M
+    </release>
+    <release version="1.3.2" date="2020-08-15">
+      Add AT32F421 subFamily to PACK
+    </release>
+    <release version="1.3.1" date="2020-02-25">
+      Add TS32F401 series, Update flash algorithm files
+    </release>
+    <release version="1.3.0" date="2019-12-26">
+      Add AT32F403A and AT32F407 subFamily to PACK.
+    </release>
+    <release version="1.2.1" date="2019-10-08">
+      Add AT32F415CBU7 and AT32F415CCU7 to PACK.
+	</release>
+    <release version="1.2.0" date="2019-4-30">
+      Add AT32F415 subFamily to PACK.
+    </release>
+    <release version="1.1.3" date="2019-4-15">
+      Add AT32FEBK to F413 Series.
+    </release>
+    <release version="1.1.2" date="2019-3-13">
+      Modify AT32F403CB sram to 32KB.
+    </release>
+    <release version="1.1.1" date="2019-2-21">
+      Update AT32F403 FLM to PACK.
+    </release>
+    <release version="1.1.0" date="2018-10-29">
+      Update AT32F413 subFamily to PACK.
+    </release>
+    <release version="1.0.3" date="2018-03-05">
+      ADD AT32F413 subFamily to PACK.
+    </release>
+    <release version="1.0.2" date="2018-02-12">
+      AT32F403 StdPeriphs replaced by V1.0.3.
+    </release>
+    <release version="1.0.1" date="2018-02-02">
+      Add AT32F403CG Device.
+    </release>
+    <release version="1.0.0" date="2017-12-25">
+      First Release version of AT32F4 Device Family Pack,Only For AT32F403xx.
+    </release>
+  </releases>
+
+  <keywords>
+    <keyword>ArteryTek</keyword>
+    <keyword>AT32F403</keyword>
+    <keyword>AT32F413</keyword>
+    <keyword>AT32F415</keyword>
+    <keyword>AT32F403A</keyword>
+    <keyword>AT32F407</keyword>
+    <keyword>AT32F421</keyword>
+    <keyword>AT32F4</keyword>
+    <keyword>AT32</keyword>
+  </keywords>
+
+  <devices>
+    <family Dfamily="AT32F4 Series" Dvendor="ArteryTek:143">
+      <processor Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="0" Dendian="Little-endian"/>
+      <description>
+AT32F4 is a new 32-bit high performance, low power consumption universal microcontroller family powered by the ARM Cortex-M4 RISC core,which targeted at various MCU application areas.
+AT32F4 family integrates features to simplify system design and provide customers wide range of comprehensive and superior cost effective MCU portfolios with proven technology and great innovation.
+      </description>
+      <subFamily DsubFamily="AT32F403">
+        <processor  Dclock="200000000"/>
+        <debug      svd="SVD/AT32F403xx.svd"/>
+        <description>
+AT32F403 - ARM Cortex-M4 Core
+  Frequency up to 200 MHz
+  Flash access zero wait state
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 128KB up to 1024 KB
+  SRAM size up to 224KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar RTC and backup register
+
+Advanced analog peripherals
+  Up to 3 x 12bit ADC
+
+Integrated peripherals interface
+  Up to 5 x USART/UART/Irda/LIN/ISO7816
+  Up to 4 x SPI
+  Up to 3 x I2C
+
+On-chip resources
+  Up to 3 x 16 bit Advanced Timer, 1 x SysTick Timer, 10 x 16 bit GPTM, 2 x 32 bit GPTM, 2 x WDG, 1 x RTC
+  5-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'AT32F403CB'  ***************************** -->
+        <device Dname="AT32F403CB">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Cx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_128.FLM"               start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403CC'  ***************************** -->
+        <device Dname="AT32F403CC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Cx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_256.FLM"               start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403CE'  ***************************** -->
+        <device Dname="AT32F403CE">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Cx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x80000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_512.FLM"               start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403CG'  ***************************** -->
+        <device Dname="AT32F403CG">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Cx_XL"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x100000"     startup="1"  default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_1024.FLM"              start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403RC'  ***************************** -->
+        <device Dname="AT32F403RC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Rx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_256.FLM"               start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403RE'  ***************************** -->
+        <device Dname="AT32F403RE">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Rx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x80000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_512.FLM"               start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403RG'  ***************************** -->
+        <device Dname="AT32F403RG">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Rx_XL"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x100000"    startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_1024.FLM"              start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403VC'  ***************************** -->
+        <device Dname="AT32F403VC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Vx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_256.FLM"               start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403VE'  ***************************** -->
+        <device Dname="AT32F403VE">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Vx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x80000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_512.FLM"               start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403VG'  ***************************** -->
+        <device Dname="AT32F403VG">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Vx_XL"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x100000"    startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_1024.FLM"              start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ZC'  ***************************** -->
+        <device Dname="AT32F403ZC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Zx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_256.FLM"               start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ZE'  ***************************** -->
+        <device Dname="AT32F403ZE">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Zx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x80000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_512.FLM"               start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ZG'  ***************************** -->
+        <device Dname="AT32F403ZG">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403Zx_XL"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x100000"    startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x38000"     init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F403_1024.FLM"              start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403_UOB.FLM"               start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403_EXT_TYPE2_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+      </subFamily>
+      <subFamily DsubFamily="AT32F413">
+        <processor  Dclock="200000000"/>
+        <debug      svd="SVD/AT32F413xx.svd"/>
+        <description>
+AT32F413 - ARM Cortex-M4 Core
+  Frequency up to 200 MHz
+  Flash access zero wait state
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 64KB up to 256KB
+  SRAM size up to 64KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar RTC and backup register
+
+Advanced analog peripherals
+  Up to 2 x 12bit ADC
+
+Integrated peripherals interface
+  Up to 5 x USART/UART/Irda/LIN/ISO7816
+  Up to 2 x SPI/I2S
+  Up to 2 x I2C
+
+On-chip resources
+  Up to 2 x 16 bit Advanced Timer, 1 x SysTick Timer, 5 x 16 bit GPTM, 2 x 32 bit GPTM, 2 x WDG, 1 x RTC
+  12-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'AT32F413KB'  ***************************** -->
+        <device Dname="AT32F413KB">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Kx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413KC'  ***************************** -->
+        <device Dname="AT32F413KC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Kx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413C8'  ***************************** -->
+        <device Dname="AT32F413C8">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Cx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413CB'  ***************************** -->
+        <device Dname="AT32F413CB">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Cx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413CC'  ***************************** -->
+        <device Dname="AT32F413CC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Cx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413RB'  ***************************** -->
+        <device Dname="AT32F413RB">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Rx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413RC'  ***************************** -->
+        <device Dname="AT32F413RC">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Rx_HD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F413TB'  ***************************** -->
+        <device Dname="AT32F413TB">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F413Tx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32FEBKC8'  ***************************** -->
+        <device Dname="AT32FEBKC8">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32FEBKCx_MD"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F413_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F413_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F413_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+      </subFamily>
+      <subFamily DsubFamily="AT32F415">
+        <processor  Dfpu="0" Dclock="150000000"/>
+        <debug      svd="SVD/AT32F415xx.svd"/>
+        <description>
+AT32F415 - ARM Cortex-M4 Core
+  Frequency up to 150 MHz
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 64KB up to 256KB
+  SRAM size up to 32KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar ERTC and backup register
+
+Advanced analog peripherals
+  Up to 2 x 12bit ADC
+
+Integrated peripherals interface
+  Up to 5 x USART/UART/Irda/LIN/ISO7816
+  Up to 2 x SPI/I2S
+  Up to 2 x I2C
+
+On-chip resources
+  Up to 1 x 16 bit Advanced Timer, 1 x SysTick Timer, 5 x 16 bit GPTM, 2 x 32 bit GPTM, 2 x WDG, 1 x ERTC
+  12-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'AT32F415K8U7-4'  ***************************** -->
+        <device Dname="AT32F415K8U7-4">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415K8U7_4"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415KBU7-4'  ***************************** -->
+        <device Dname="AT32F415KBU7-4">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415KBU7_4"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415KCU7-4'  ***************************** -->
+        <device Dname="AT32F415KCU7-4">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415KCU7_4"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415C8T7'  ***************************** -->
+        <device Dname="AT32F415C8T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415C8T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415CBT7'  ***************************** -->
+        <device Dname="AT32F415CBT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415CBT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415CCT7'  ***************************** -->
+        <device Dname="AT32F415CCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415CCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+        <!-- *************************  Device 'AT32F415CBU7'  ***************************** -->
+        <device Dname="AT32F415CBU7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415CBU7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F415_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415CCU7'  ***************************** -->
+        <device Dname="AT32F415CCU7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415CCU7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F415_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415R8T7'  ***************************** -->
+        <device Dname="AT32F415R8T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415R8T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415RBT7'  ***************************** -->
+        <device Dname="AT32F415RBT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415RBT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415RCT7'  ***************************** -->
+        <device Dname="AT32F415RCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415RCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415R8T7-7'  ***************************** -->
+        <device Dname="AT32F415R8T7-7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415R8T7_7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415RBT7-7'  ***************************** -->
+        <device Dname="AT32F415RBT7-7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415RBT7_7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F415RCT7-7'  ***************************** -->
+        <device Dname="AT32F415RCT7-7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F415RCT7_7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x40000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/AT32F415_256.FLM"                    start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F415_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F415_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+      </subFamily>
+      <subFamily DsubFamily="AT32F403A">
+        <processor  Dfpu="1" Dclock="200000000"/>
+        <debug      svd="SVD/AT32F403Axx.svd"/>
+        <description>
+AT32F403A - ARM Cortex-M4 Core
+  Frequency up to 240 MHz
+  Flash access zero wait state
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 256KB up to 1024 KB
+  SRAM size up to 224KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar RTC and backup register
+
+Advanced analog peripherals
+  Up to 3 x 12bit ADC
+
+Integrated peripherals interface
+  Up to 5 x USART/UART/Irda/LIN/ISO7816
+  Up to 4 x SPI
+  Up to 3 x I2C
+
+On-chip resources
+  Up to 2 x 16 bit Advanced Timer, 1 x SysTick Timer, 10 x 16 bit GPTM, 2 x 32 bit GPTM, 2 x WDG, 1 x RTC
+  7-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'AT32F403ACCT7'  ***************************** -->
+        <device Dname="AT32F403ACCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ACCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_256.FLM"                      start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ACCU7'  ***************************** -->
+        <device Dname="AT32F403ACCU7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ACCU7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_256.FLM"                      start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ACET7'  ***************************** -->
+        <device Dname="AT32F403ACET7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ACET7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x80000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_512.FLM"                      start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ACEU7'  ***************************** -->
+        <device Dname="AT32F403ACEU7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ACEU7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x80000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_512.FLM"                      start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ACGT7'  ***************************** -->
+        <device Dname="AT32F403ACGT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ACGT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_1024.FLM"                     start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ACGU7'  ***************************** -->
+        <device Dname="AT32F403ACGU7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ACGU7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_1024.FLM"                     start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ARCT7'  ***************************** -->
+        <device Dname="AT32F403ARCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ARCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_256.FLM"                      start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ARET7'  ***************************** -->
+        <device Dname="AT32F403ARET7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ARET7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x80000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_512.FLM"                      start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403ARGT7'  ***************************** -->
+        <device Dname="AT32F403ARGT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403ARGT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_1024.FLM"                     start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403AVCT7'  ***************************** -->
+        <device Dname="AT32F403AVCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403AVCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_256.FLM"                      start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403AVET7'  ***************************** -->
+        <device Dname="AT32F403AVET7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403AVET7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x80000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_512.FLM"                      start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F403AVGT7'  ***************************** -->
+        <device Dname="AT32F403AVGT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F403AVGT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"       size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"       size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F403A_1024.FLM"                     start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F403A_UOB.FLM"                      start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE1_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP0_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F403A_EXT_TYPE2_REAMP1_GENERAL.FLM" start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+      </subFamily>
+      <subFamily DsubFamily="AT32F407">
+        <processor  Dfpu="1" Dclock="200000000"/>
+        <debug      svd="SVD/AT32F407xx.svd"/>
+        <description>
+AT32F407 - ARM Cortex-M4 Core
+  Frequency up to 240 MHz
+  Flash access zero wait state
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 256KB up to 1024 KB
+  SRAM size up to 224KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar RTC and backup register
+
+Advanced analog peripherals
+  Up to 3 x 12bit ADC
+
+Integrated peripherals interface
+  Up to 5 x USART/UART/Irda/LIN/ISO7816
+  Up to 4 x SPI
+  Up to 3 x I2C
+
+On-chip resources
+  Up to 2 x 16 bit Advanced Timer, 1 x SysTick Timer, 10 x 16 bit GPTM, 2 x 32 bit GPTM, 2 x WDG, 1 x RTC,
+  1 x ETH, 7-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'AT32F407RCT7'  ***************************** -->
+        <device Dname="AT32F407RCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407RCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_256.FLM"                         start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407RET7'  ***************************** -->
+        <device Dname="AT32F407RET7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407RET7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x80000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_512.FLM"                         start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407RGT7'  ***************************** -->
+        <device Dname="AT32F407RGT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407RGT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_1024.FLM"                        start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407VCT7'  ***************************** -->
+        <device Dname="AT32F407VCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407VCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_256.FLM"                         start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407VET7'  ***************************** -->
+        <device Dname="AT32F407VET7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407VET7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x80000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_512.FLM"                         start="0x08000000" size="0x80000"   default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407VGT7'  ***************************** -->
+        <device Dname="AT32F407VGT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407VGT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_1024.FLM"                        start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407AVCT7'  ***************************** -->
+        <device Dname="AT32F407AVCT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407AVCT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x40000"     startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_256.FLM"                         start="0x08000000" size="0x40000"   default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F407AVGT7'  ***************************** -->
+        <device Dname="AT32F407AVGT7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F407AVGT7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"         size="0x100000"    startup="1"      default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"         size="0x38000"     init   ="0"      default="1"/>
+          <algorithm name="Flash/AT32F407_1024.FLM"                        start="0x08000000" size="0x100000"  default="1"/>
+          <algorithm name="Flash/AT32F407_UOB.FLM"                         start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE1_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP0_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/AT32F407_EXT_TYPE2_REAMP1_GENERAL.FLM"    start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+      </subFamily>
+	  <subFamily DsubFamily="AT32F421">
+        <processor  Dfpu="0" Dclock="120000000"/>
+		<compile    header="Device/Include/at32f4xx.h"/>
+		<debug      svd="SVD/AT32F421xx.svd"/>
+        <description>
+AT32F421 - ARM Cortex-M4 Core
+  Frequency up to 120 MHz
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 16KB up to 64KB
+  SRAM size up to 16KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar RTC and backup register
+
+Advanced analog peripherals
+  Up to 1 x 12bit ADC 
+
+Integrated peripherals interface
+  Up to 2 x USART/UART/Irda/LIN/ISO7816
+  Up to 2 x SPI/I2S 
+  Up to 2 x I2C
+
+On-chip resources
+  Up to 1 x 16 bit Advanced Timer, 1 x SysTick Timer, 5 x 16 bit GPTM, 2 x WDG, 1 x RTC
+  5-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'AT32F421C8T7'  ***************************** -->
+        <device Dname="AT32F421C8T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421C8T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421C6T7'  ***************************** -->
+        <device Dname="AT32F421C6T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421C6T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421C4T7'  ***************************** -->
+        <device Dname="AT32F421C4T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421C4T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K8T7'  ***************************** -->
+        <device Dname="AT32F421K8T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K8T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K6T7'  ***************************** -->
+        <device Dname="AT32F421K6T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K6T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K4T7'  ***************************** -->
+        <device Dname="AT32F421K4T7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K4T7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K8U7'  ***************************** -->
+        <device Dname="AT32F421K8U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K8U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K6U7'  ***************************** -->
+        <device Dname="AT32F421K6U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K6U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K4U7'  ***************************** -->
+        <device Dname="AT32F421K4U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K4U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K8U7-4'  ***************************** -->
+        <device Dname="AT32F421K8U7-4">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K8U7_4"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K6U7-4'  ***************************** -->
+        <device Dname="AT32F421K6U7-4">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K6U7_4"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421K4U7-4'  ***************************** -->
+        <device Dname="AT32F421K4U7-4">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421K4U7_4"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421F8P7'  ***************************** -->
+        <device Dname="AT32F421F8P7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421F8P7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421F6P7'  ***************************** -->
+        <device Dname="AT32F421F6P7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421F6P7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421F4P7'  ***************************** -->
+        <device Dname="AT32F421F4P7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421F4P7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421F8U7'  ***************************** -->
+        <device Dname="AT32F421F8U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421F8U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421F6U7'  ***************************** -->
+        <device Dname="AT32F421F6U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421F6U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421F4U7'  ***************************** -->
+        <device Dname="AT32F421F4U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421F4U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421G8U7'  ***************************** -->
+        <device Dname="AT32F421G8U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421G8U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421G6U7'  ***************************** -->
+        <device Dname="AT32F421G6U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421G6U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x8000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_32.FLM"                     start="0x08000000" size="0x8000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421G4U7'  ***************************** -->
+        <device Dname="AT32F421G4U7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421G4U7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421PF8P7'  ***************************** -->
+        <device Dname="AT32F421PF8P7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421PF8P7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x10000"     startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x4000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_64.FLM"                     start="0x08000000" size="0x10000"   default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+        <!-- *************************  Device 'AT32F421PF4P7'  ***************************** -->
+        <device Dname="AT32F421PF4P7">
+          <compile header="Device/Include/at32f4xx.h"  define="AT32F421PF4P7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x4000"      startup="1"   default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x2000"      init   ="0"   default="1"/>
+          <algorithm name="Flash/AT32F421_16.FLM"                     start="0x08000000" size="0x4000"    default="1"/>
+          <algorithm name="Flash/AT32F421_SYSMEM_AP.FLM"              start="0x1FFFAC00" size="0x04800"   default="0"/>
+          <algorithm name="Flash/AT32F421_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+        </device>
+
+      </subFamily>
+    </family>
+    <family Dfamily="TS32 Series" Dvendor="ArteryTek:143">
+      <processor Dcore="Cortex-M4"  DcoreVersion="r0p1" Dfpu="1" Dmpu="0" Dendian="Little-endian"/>
+      <description>
+TS32 is a new 32-bit high performance, low power consumption universal microcontroller family powered by the ARM Cortex-M4 RISC core,which targeted at various MCU application areas.
+TS32 family integrates features to simplify system design and provide customers wide range of comprehensive and superior cost effective MCU portfolios with proven technology and great innovation.
+      </description>
+      <subFamily DsubFamily="TS32F401">
+        <processor  Dclock="200000000"/>
+        <debug      svd="SVD/AT32F413xx.svd"/>
+        <description>
+TS32F401 - ARM Cortex-M4 Core
+  Frequency up to 200 MHz
+  Flash access zero wait state
+  Single-cycle multiplier and hardware divider
+  NVIC support 16 internal, 68 external interrupts, each has 16 priority levels
+
+Memories
+  Flash size from 64KB up to 256KB
+  SRAM size up to 64KB
+
+Low power management
+  Power saving mode: sleep,standby,stop mode
+  Independent battery supply for real-calendar RTC and backup register
+
+Advanced analog peripherals
+  Up to 2 x 12bit ADC
+
+Integrated peripherals interface
+  Up to 5 x USART/UART/Irda/LIN/ISO7816
+  Up to 2 x SPI/I2S
+  Up to 2 x I2C
+
+On-chip resources
+  Up to 2 x 16 bit Advanced Timer, 1 x SysTick Timer, 5 x 16 bit GPTM, 2 x 32 bit GPTM, 2 x WDG, 1 x RTC
+  12-chs DMA support: Timers, ADC, SPIs, I2Cs, USARTs
+  System supervisor and reset: POR,PDR,LVD
+  80% GPIO available
+  32-bit CRC, 96-bit unique ID
+  On-chip clock: HSI (8MHz), LSI (40KHz)
+        </description>
+
+        <!-- *************************  Device 'TS32F401CBU7'  ***************************** -->
+        <device Dname="TS32F401CBU7">
+          <compile header="Device/Include/at32f4xx.h"  define="TS32F401CBU7"/>
+          <memory id="IROM1"  access="rx"       start="0x08000000"  size="0x20000"     startup="1"        default="1"/>
+          <memory id="IRAM1"  access="rw"       start="0x20000000"  size="0x8000"      init   ="0"        default="1"/>
+          <algorithm name="Flash/TS32F401_128.FLM"                    start="0x08000000" size="0x20000"   default="1"/>
+          <algorithm name="Flash/TS32F401_UOB.FLM"                    start="0x1FFFF800" size="0x00040"   default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE1_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP0_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP0_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP0_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP0_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP0_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP1_1MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP1_2MB.FLM"   start="0x08400000" size="0x1000000" default="0"/> 
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP1_4MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP1_8MB.FLM"   start="0x08400000" size="0x1000000" default="0"/>
+          <algorithm name="Flash/TS32F401_EXT_TYPE2_REAMP1_16MB.FLM"  start="0x08400000" size="0x1000000" default="0"/>
+        </device>
+      </subFamily>
+    </family>
+ </devices>
+
+  <!-- examples section (optional for all Software Packs)-->
+  <!--
+  <examples>
+  </examples>
+  -->
+
+  <conditions>
+    <condition id="Compiler ARMCC">                                             <!-- conditions selecting ARM Compiler -->
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+<!-- Series id conditions selecting ARM Compiler -->
+    <condition id="AT32F4">
+      <description>ArteryTek AT32F4xx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F[4E][012B]*"/>
+    </condition>
+
+    <condition id="TS32F4">
+      <description>ArteryTek AT32F4xx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="TS32F401*"/>
+    </condition>
+
+    <condition id="AT32F403xx">
+      <description>ArteryTek AT32F403xx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F403[CRVZ]*"/>
+    </condition>
+<!-- EBK at F413 -->
+    <condition id="AT32F413EBK">
+      <description>ArteryTek AT32F413xx EBK Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32FEBK*"/>
+    </condition>
+    <condition id="AT32F413NOR">
+      <description>ArteryTek AT32F413xx Normal Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F413*"/>
+    </condition>
+    <condition id="AT32F413xx">
+      <description>ArteryTek AT32F413xx Series devices</description>
+      <accept condition="AT32F413EBK"/>
+      <accept condition="AT32F413NOR"/>
+      <accept condition="TS32F401CBU7"/>
+    </condition>
+
+    <condition id="AT32F415xx">
+      <description>ArteryTek AT32F415xx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F415*"/>
+    </condition>
+
+    <condition id="AT32F403Axx">
+      <description>ArteryTek AT32F403Axx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F403A*"/>
+    </condition>
+
+    <condition id="AT32F407xx">
+      <description>ArteryTek AT32F407xx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F407*"/>
+    </condition>
+
+    <condition id="AT32F421xx">
+      <description>ArteryTek AT32F421xx Series devices</description>
+      <require Dvendor="ArteryTek:143" Dname="AT32F421*"/>
+    </condition>
+<!-- Series id conditions selecting ARM Compiler END -->
+
+    <condition id="AT32F403 CX MD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403CB"/>
+    </condition>
+
+    <condition id="AT32F403 CX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403C[CE]"/>
+    </condition>
+
+    <condition id="AT32F403 RX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403R[CE]"/>
+    </condition>
+
+    <condition id="AT32F403 VX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403V[CE]"/>
+    </condition>
+
+    <condition id="AT32F403 ZX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403Z[CE]"/>
+    </condition>
+
+    <condition id="AT32F403 CX XL">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403CG"/>
+    </condition>
+
+    <condition id="AT32F403 RX XL">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403RG"/>
+    </condition>
+
+    <condition id="AT32F403 VX XL">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403VG"/>
+    </condition>
+
+    <condition id="AT32F403 ZX XL">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ZG"/>
+    </condition>
+
+    <condition id="AT32F413 KX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413KC"/>
+    </condition>
+
+    <condition id="AT32F413 KX MD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413KB"/>
+    </condition>
+
+    <condition id="AT32F413 TX MD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413TB"/>
+    </condition>
+
+    <condition id="AT32F413 CX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413CC"/>
+    </condition>
+
+    <condition id="TS32F401CBU7">
+      <require Dvendor="ArteryTek:143" Dname="TS32F401CBU7"/>
+    </condition>
+
+<!-- EBK at F413 -->
+    <condition id="AT32F413 CX EBK">
+      <require Dvendor="ArteryTek:143" Dname="AT32FEBKC8"/>
+    </condition>
+    <condition id="AT32F413 CX NOR">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413C[8B]"/>
+    </condition>
+    <condition id="AT32F413 CX MD">
+      <accept condition="AT32F413 CX EBK"/>
+      <accept condition="AT32F413 CX NOR"/>
+    </condition>
+
+    <condition id="AT32F413 RX HD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413RC"/>
+    </condition>
+
+    <condition id="AT32F413 RX MD">
+      <require Dvendor="ArteryTek:143" Dname="AT32F413RB"/>
+    </condition>
+
+    <condition id="AT32F415K8U7-4">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415K8U7-4"/>
+    </condition>
+
+    <condition id="AT32F415KBU7-4">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415KBU7-4"/>
+    </condition>
+
+    <condition id="AT32F415KCU7-4">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415KCU7-4"/>
+    </condition>
+
+    <condition id="AT32F415C8T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415C8T7"/>
+    </condition>
+
+    <condition id="AT32F415CBT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415CBT7"/>
+    </condition>
+
+    <condition id="AT32F415CBU7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415CBU7"/>
+    </condition>
+
+    <condition id="AT32F415CCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415CCT7"/>
+    </condition>
+
+    <condition id="AT32F415CCU7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415CCU7"/>
+    </condition>
+
+    <condition id="AT32F415R8T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415R8T7"/>
+    </condition>
+
+    <condition id="AT32F415RBT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415RBT7"/>
+    </condition>
+
+    <condition id="AT32F415RCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415RCT7"/>
+    </condition>
+
+    <condition id="AT32F415R8T7-7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415R8T7-7"/>
+    </condition>
+
+    <condition id="AT32F415RBT7-7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415RBT7-7"/>
+    </condition>
+
+    <condition id="AT32F415RCT7-7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F415RCT7-7"/>
+    </condition>
+
+    <condition id="AT32F403ACCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ACCT7"/>
+    </condition>
+
+    <condition id="AT32F403ACET7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ACET7"/>
+    </condition>
+
+
+     <condition id="AT32F403ACGT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ACGT7"/>
+    </condition>
+
+    <condition id="AT32F403ACCU7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ACCU7"/>
+    </condition>
+
+    <condition id="AT32F403ACEU7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ACEU7"/>
+    </condition>
+
+     <condition id="AT32F403ACGU7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ACGU7"/>
+    </condition>
+
+    <condition id="AT32F403AVCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403AVCT7"/>
+    </condition>
+
+    <condition id="AT32F403AVET7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403AVET7"/>
+    </condition>
+
+    <condition id="AT32F403AVGT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403AVGT7"/>
+    </condition>
+
+    <condition id="AT32F403ARCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ARCT7"/>
+    </condition>
+
+    <condition id="AT32F403ARET7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ARET7"/>
+    </condition>
+
+    <condition id="AT32F403ARGT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F403ARGT7"/>
+    </condition>
+
+    <condition id="AT32F407RCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407RCT7"/>
+    </condition>
+
+    <condition id="AT32F407RET7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407RET7"/>
+    </condition>
+
+    <condition id="AT32F407RGT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407RGT7"/>
+    </condition>
+
+    <condition id="AT32F407VCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407VCT7"/>
+    </condition>
+
+    <condition id="AT32F407VET7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407VET7"/>
+    </condition>
+
+    <condition id="AT32F407VGT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407VGT7"/>
+    </condition>
+
+    <condition id="AT32F407AVCT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407AVCT7"/>
+    </condition>
+
+    <condition id="AT32F407AVGT7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F407AVGT7"/>
+    </condition>
+
+    <condition id="AT32F421C8T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421C8T7"/>
+    </condition>
+
+    <condition id="AT32F421C6T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421C6T7"/>
+    </condition>
+
+    <condition id="AT32F421C4T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421C4T7"/>
+    </condition>
+
+    <condition id="AT32F421K8T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K8T7"/>
+    </condition>
+
+    <condition id="AT32F421K6T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K6T7"/>
+    </condition>
+
+    <condition id="AT32F421K4T7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K4T7"/>
+    </condition>
+
+    <condition id="AT32F421K8U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K8U7"/>
+    </condition>
+
+    <condition id="AT32F421K6U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K6U7"/>
+    </condition>
+
+    <condition id="AT32F421K4U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K4U7"/>
+    </condition>
+
+    <condition id="AT32F421K8U7-4">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K8U7-4"/>
+    </condition>
+
+    <condition id="AT32F421K6U7-4">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K6U7-4"/>
+    </condition>
+
+    <condition id="AT32F421K4U7-4">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421K4U7-4"/>
+    </condition>
+
+    <condition id="AT32F421F8P7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421F8P7"/>
+    </condition>
+
+    <condition id="AT32F421F6P7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421F6P7"/>
+    </condition>
+
+    <condition id="AT32F421F4P7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421F4P7"/>
+    </condition>
+
+    <condition id="AT32F421PF8P7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421PF8P7"/>
+    </condition>
+
+    <condition id="AT32F421PF4P7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421PF4P7"/>
+    </condition>
+
+    <condition id="AT32F421F8U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421F8U7"/>
+    </condition>
+
+    <condition id="AT32F421F6U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421F6U7"/>
+    </condition>
+
+    <condition id="AT32F421F4U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421F4U7"/>
+    </condition>
+
+    <condition id="AT32F421G8U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421G8U7"/>
+    </condition>
+
+    <condition id="AT32F421G6U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421G6U7"/>
+    </condition>
+
+    <condition id="AT32F421G4U7">
+      <require Dvendor="ArteryTek:143" Dname="AT32F421G4U7"/>
+    </condition>
+
+    <condition id="AT32F4_SYSCFG">
+      <description>ArteryTek System config Series devices</description>
+      <accept condition="AT32F421xx"/>
+    </condition>
+
+    <condition id="AT32F4_GPIO_EX">
+      <description>ArteryTek GPIO expend Series devices</description>
+      <accept condition="AT32F421xx"/>
+    </condition>
+
+    <condition id="AT32F4_GPIO">
+      <description>ArteryTek GPIO expend Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F413xx"/>
+      <accept condition="AT32F415xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_ERTC">
+      <description>ArteryTek Enhance RTC Series devices</description>
+      <accept condition="AT32F415xx"/>
+      <accept condition="AT32F421xx"/>
+    </condition>
+
+    <condition id="AT32F4_RTC">
+      <description>ArteryTek RTC Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F413xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_BKPR">
+      <description>ArteryTek BKP Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F413xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_OTG">
+      <description>ArteryTek OTG Series devices</description>
+      <accept  condition="AT32F415xx"/>
+    </condition>
+
+    <condition id="AT32F4_USB">
+      <description>ArteryTek Enhance RTC Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F413xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_ACC">
+      <description>ArteryTek ACC Series devices</description>
+      <accept condition="AT32F413xx"/>
+      <accept condition="AT32F415xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_XMC">
+      <description>ArteryTek XMC Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_DAC">
+      <description>ArteryTek DAC Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_SDIO">
+      <description>ArteryTek SDIO Series devices</description>
+      <accept condition="AT32F403xx"/>
+      <accept condition="AT32F413xx"/>
+      <accept  condition="AT32F415xx"/>
+      <accept condition="AT32F403Axx"/>
+      <accept condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4_COMP">
+      <description>ArteryTek Enhance RTC Series devices</description>
+      <accept  condition="AT32F415xx"/>
+      <accept  condition="AT32F421xx"/>
+    </condition>
+
+    <condition id="AT32F4_ETH">
+      <description>ArteryTek Enhance ETH Series devices</description>
+      <accept  condition="AT32F407xx"/>
+    </condition>
+
+    <condition id="AT32F4xx CMSIS">                                   <!-- conditions selecting Devices -->
+      <description>ArteryTek AT32F4xx Series devices</description>
+      <accept condition="AT32F4"/>
+      <accept condition="TS32F4"/>
+      <require Cclass="CMSIS" Cgroup="CORE" Csub=""/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers</description>
+      <require condition="AT32F4xx CMSIS"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="Framework"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH RCC">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with RCC</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH RTC">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with RTC</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_RTC"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RTC"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH ERTC">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with ERTC</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_ERTC"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ERTC"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH BKPR">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with BKP</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_BKPR"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="BKPR"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH GPIO">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with GPIO</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_GPIO"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH GPIO Ex">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with GPIO_EX</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_GPIO_EX"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO_EX"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH SYSCFG">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with SYSCFG</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_SYSCFG"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SYSCFG"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH SDIO">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with SDIO</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_SDIO"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SDIO"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH OTG">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with OTG</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_OTG"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="OTG"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH USB">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with USB</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_USB"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="USB"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH ACC">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with ACC</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_ACC"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ACC"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH COMP">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with COMP</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_COMP"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="COMP"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH XMC">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with XMC</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_XMC"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="XMC"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH DAC">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with DAC</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_DAC"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DAC"/>
+    </condition>
+
+    <condition id="AT32F4xx STDPERIPH ETH">
+      <description>ArteryTek AT32F4xx Standard Peripherals Drivers with ETH</description>
+      <require condition="AT32F4xx STDPERIPH"/>
+      <require condition="AT32F4xx STDPERIPH RCC"/>
+      <require condition="AT32F4_ETH"/>
+      <require Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ETH"/>
+    </condition>
+
+  </conditions>
+
+  <components>
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.0.1" condition="AT32F4xx CMSIS">
+      <description>Startup File for ArteryTek AT32F4xx Series</description>
+      <files>
+        <!--  include folder -->
+        <file category="include" name="Device/Include/"/>
+
+        <file category="source"  name="Device/Source/ARM/startup_at32f403cx_md.s" attr="config" condition="AT32F403 CX MD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403cx_hd.s" attr="config" condition="AT32F403 CX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403rx_hd.s" attr="config" condition="AT32F403 RX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403vx_hd.s" attr="config" condition="AT32F403 VX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403zx_hd.s" attr="config" condition="AT32F403 ZX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403cx_xl.s" attr="config" condition="AT32F403 CX XL" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403rx_xl.s" attr="config" condition="AT32F403 RX XL" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403vx_xl.s" attr="config" condition="AT32F403 VX XL" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403zx_xl.s" attr="config" condition="AT32F403 ZX XL" version="1.0.1"/>
+
+        <file category="source"  name="Device/Source/ARM/startup_at32f413kx_hd.s" attr="config" condition="AT32F413 KX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f413kx_md.s" attr="config" condition="AT32F413 KX MD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f413cx_hd.s" attr="config" condition="AT32F413 CX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f413cx_md.s" attr="config" condition="AT32F413 CX MD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f413rx_hd.s" attr="config" condition="AT32F413 RX HD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f413rx_md.s" attr="config" condition="AT32F413 RX MD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f413tx_md.s" attr="config" condition="AT32F413 TX MD" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_ts32f401cbu7.s" attr="config" condition="TS32F401CBU7" version="1.0.1"/>
+
+        <file category="source"  name="Device/Source/ARM/startup_at32f415k8u7-4.s" attr="config" condition="AT32F415K8U7-4" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415kbu7-4.s" attr="config" condition="AT32F415KBU7-4" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415kcu7-4.s" attr="config" condition="AT32F415KCU7-4" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415c8t7.s" attr="config" condition="AT32F415C8T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415cbt7.s" attr="config" condition="AT32F415CBT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415cbu7.s" attr="config" condition="AT32F415CBU7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415cct7.s" attr="config" condition="AT32F415CCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415ccu7.s" attr="config" condition="AT32F415CCU7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415r8t7.s" attr="config" condition="AT32F415R8T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415rbt7.s" attr="config" condition="AT32F415RBT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415rct7.s" attr="config" condition="AT32F415RCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415r8t7-7.s" attr="config" condition="AT32F415R8T7-7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415rbt7-7.s" attr="config" condition="AT32F415RBT7-7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f415rct7-7.s" attr="config" condition="AT32F415RCT7-7" version="1.0.1"/>
+
+        <file category="source"  name="Device/Source/ARM/startup_at32f403acct7.s" attr="config" condition="AT32F403ACCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403acet7.s" attr="config" condition="AT32F403ACET7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403acgt7.s" attr="config" condition="AT32F403ACGT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403accu7.s" attr="config" condition="AT32F403ACCU7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403aceu7.s" attr="config" condition="AT32F403ACEU7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403acgu7.s" attr="config" condition="AT32F403ACGU7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403arct7.s" attr="config" condition="AT32F403ARCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403aret7.s" attr="config" condition="AT32F403ARET7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403argt7.s" attr="config" condition="AT32F403ARGT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403avct7.s" attr="config" condition="AT32F403AVCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403avet7.s" attr="config" condition="AT32F403AVET7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f403avgt7.s" attr="config" condition="AT32F403AVGT7" version="1.0.1"/>
+
+        <file category="source"  name="Device/Source/ARM/startup_at32f407rct7.s" attr="config" condition="AT32F407RCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407ret7.s" attr="config" condition="AT32F407RET7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407rgt7.s" attr="config" condition="AT32F407RGT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407vct7.s" attr="config" condition="AT32F407VCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407vet7.s" attr="config" condition="AT32F407VET7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407vgt7.s" attr="config" condition="AT32F407VGT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407avct7.s" attr="config" condition="AT32F407AVCT7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f407avgt7.s" attr="config" condition="AT32F407AVGT7" version="1.0.1"/>
+
+        <file category="source"  name="Device/Source/ARM/startup_at32f421c4t7.s" attr="config" condition="AT32F421C4T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421c6t7.s" attr="config" condition="AT32F421C6T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421c8t7.s" attr="config" condition="AT32F421C8T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k4t7.s" attr="config" condition="AT32F421K4T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k6t7.s" attr="config" condition="AT32F421K6T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k8t7.s" attr="config" condition="AT32F421K8T7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k4u7.s" attr="config" condition="AT32F421K4U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k6u7.s" attr="config" condition="AT32F421K6U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k8u7.s" attr="config" condition="AT32F421K8U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k4u7-4.s" attr="config" condition="AT32F421K4U7-4" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k6u7-4.s" attr="config" condition="AT32F421K6U7-4" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421k8u7-4.s" attr="config" condition="AT32F421K8U7-4" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421f4p7.s" attr="config" condition="AT32F421F4P7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421f6p7.s" attr="config" condition="AT32F421F6P7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421f8p7.s" attr="config" condition="AT32F421F8P7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421pf4p7.s" attr="config" condition="AT32F421PF4P7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421pf8p7.s" attr="config" condition="AT32F421PF8P7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421f4u7.s" attr="config" condition="AT32F421F4U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421f6u7.s" attr="config" condition="AT32F421F6U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421f8u7.s" attr="config" condition="AT32F421F8U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421g4u7.s" attr="config" condition="AT32F421G4U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421g6u7.s" attr="config" condition="AT32F421G6U7" version="1.0.1"/>
+        <file category="source"  name="Device/Source/ARM/startup_at32f421g8u7.s" attr="config" condition="AT32F421G8U7" version="1.0.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="System_AT32Fxx" Cversion="1.0.1" condition="AT32F4xx CMSIS">
+      <description>System Clock Config File for ArteryTek AT32F4xx</description>
+      <files>
+        <!--  include folder -->
+        <file category="include" name="Device/Include/"/>
+        <file category="source"  name="Device/Source/system_at32f4xx.c"  attr="config" version="1.0.1"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="Framework" Cversion="1.0.1" condition="AT32F4xx STDPERIPH">
+      <description>Standard Peripherals Drivers Framework</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FRAMEWORK
+      </RTE_Components_h>
+      <files>
+        <file category="include" name="Device\StdPeriph_Driver\inc\"/>
+        <file category="include" name="Device\StdPeriph_Driver\templates\"/>
+        <file category="source"  name="Device\StdPeriph_Driver\src\misc.c"/>
+        <file category="source"  name="Device\StdPeriph_Driver\templates\at32f4xx_conf.h" attr="config" version="1.0.1"/>
+        <file category="include" name="Device\StdPeriph_Driver\templates\at32f4xx_it.h"   attr="template" select="Interrupt Service Routines"/>
+        <file category="source"  name="Device\StdPeriph_Driver\templates\at32f4xx_it.c"   attr="template" select="Interrupt Service Routines"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="WWDG" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Window watchdog (WWDG) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_WWDG
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_wwdg.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_wwdg.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="USART" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Universal synchronous asynchronous receiver transmitter (USART) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_USART
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_usart.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_usart.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="TIMER" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Timers (TIMER) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_TIM
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_tim.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_tim.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SPI" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Serial peripheral interface (SPI) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_SPI
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_spi.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_spi.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SDIO" Cversion="1.0.1" condition="AT32F4xx STDPERIPH SDIO">
+      <description>Secure digital (SDIO) interface driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_SDIO
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_sdio.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_sdio.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ADC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Analog-to-digital converter (ADC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_ADC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_adc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_adc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="BKPR" Cversion="1.0.1" condition="AT32F4xx STDPERIPH BKPR">
+      <description>Backup registers (BKPR) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_BKP
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_bkp.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_bkp.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="CAN" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Controller area network (CAN) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_CAN
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_can.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_can.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="CRC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>CRC calculation unit (CRC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_CRC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_crc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_crc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DAC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH DAC">
+      <description>Digital-to-analog converter (DAC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DAC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_dac.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_dac.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="MCUDBG" Cversion="1.0.1" condition="AT32F4xx STDPERIPH">
+      <description>MCU debug component (MCUDBG) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DBGMCU
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_dbgmcu.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_dbgmcu.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="DMA" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>DMA controller (DMA) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_DMA
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_dma.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_dma.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="EXTI" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>External interrupt/event controller (EXTI) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_EXTI
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_exti.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_exti.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="FMC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Embedded Flash memory driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FLASH
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_flash.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_flash.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="XMC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH XMC">
+      <description>Flexible Static Memory Controller (XMC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_FSMC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_xmc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_xmc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO" Cversion="1.0.1" condition="AT32F4xx STDPERIPH GPIO">
+      <description>General-purpose I/O (GPIO) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_GPIO
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_gpio.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_gpio.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="GPIO_EX" Cversion="1.0.1" condition="AT32F4xx STDPERIPH GPIO Ex">
+      <description>General-purpose I/O (GPIO) expend driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_GPIO_EX
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_gpio_ex.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_gpio_ex.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="SYSCFG" Cversion="1.0.1" condition="AT32F4xx STDPERIPH SYSCFG">
+      <description>System config (SYSCFG) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_SYSCFG
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_syscfg.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_syscfg.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="I2C" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Inter-integrated circuit (I2C) interface driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_I2C
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_i2c.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_i2c.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="IWDG" Cversion="1.0.1" condition="AT32F4xx STDPERIPH">
+      <description>Independent watchdog (IWDG) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_IWDG
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_iwdg.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_iwdg.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="PWR" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RCC">
+      <description>Power controller (PWR) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_PWR
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_pwr.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_pwr.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RCC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH">
+      <description>Reset and clock control (RCC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_RCC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_rcc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_rcc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="RTC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH RTC">
+      <description>Real-time clock (RTC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_RTC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_rtc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_rtc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ERTC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH ERTC">
+      <description>Enhance Real-time clock (ERTC) driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_ERTC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_ertc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_ertc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="COMP" Cversion="1.0.1" condition="AT32F4xx STDPERIPH COMP">
+      <description>Comparator driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_COMP
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_comp.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_comp.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ACC" Cversion="1.0.1" condition="AT32F4xx STDPERIPH ACC">
+      <description>ACC driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_ACC
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_acc.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_acc.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Device" Cgroup="StdPeriph Drivers" Csub="ETH" Cversion="1.0.1" condition="AT32F4xx STDPERIPH ETH">
+      <description>ETH driver for AT32F4xx</description>
+      <RTE_Components_h>
+        #define RTE_DEVICE_STDPERIPH_ETH
+      </RTE_Components_h>
+      <files>
+        <file category="header" name="Device\StdPeriph_Driver\inc\at32f4xx_eth.h"/>
+        <file category="source" name="Device\StdPeriph_Driver\src\at32f4xx_eth.c"/>
+      </files>
+    </component>
+
+  </components>
+
+</package>

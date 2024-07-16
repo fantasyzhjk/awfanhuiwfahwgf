@@ -1,0 +1,3 @@
+{
+    "EIDE.ARM.ARMCC6.InstallDirectory": "${compilers.arm.armclang}"
+}

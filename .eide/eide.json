@@ -1,0 +1,118 @@
+{
+  "name": "at32f405",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    "libraries",
+    "project",
+    "middlewares/usb_drivers"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": []
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "11ad573f2099edd0b6a1d773cee9d01b"
+  },
+  "targets": {
+    "obj": {
+      "excludeList": [
+        "libraries/cmsis/cm4/device_support/startup/gcc/startup_at32f402_405.s",
+        "libraries/cmsis/cm4/device_support/startup/iar/startup_at32f402_405.s",
+        "libraries/cmsis/dsp",
+        "middlewares/usb_drivers/src/usbh_core.c",
+        "middlewares/usb_drivers/src/usbh_ctrl.c",
+        "middlewares/usb_drivers/src/usbh_int.c"
+      ],
+      "toolchain": "AC6",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "useCustomScatterFile": false,
+        "scatterFilePath": "<YOUR_SCATTER_FILE>.sct",
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x11800"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x08000000",
+                "size": "0x40000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "OpenOCD",
+      "uploadConfig": {
+        "bin": "",
+        "target": "at32f405xx",
+        "interface": "atlink",
+        "baseAddr": "0x08000000"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "",
+          "interface": "",
+          "baseAddr": "0x08000000"
+        },
+        "Custom": {
+          "bin": "",
+          "commandLine": "",
+          "eraseChipCommand": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "libraries/cmsis/cm4/core_support",
+          "libraries/cmsis/cm4/device_support",
+          "libraries/drivers/inc",
+          "project/inc",
+          "project/board",
+          "middlewares/usb_drivers/inc",
+          "project/src"
+        ],
+        "libList": [],
+        "defineList": [
+          "AT32F405RCT7",
+          "USE_STDPERIPH_DRIVER",
+          "AT_START_F405_V1",
+          "USB_OTG_HS"
+        ]
+      }
+    }
+  },
+  "version": "3.4"
+}

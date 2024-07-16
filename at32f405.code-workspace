@@ -1,0 +1,74 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.autoGuessEncoding": true,
+        "C_Cpp.default.configurationProvider": "cl.eide",
+        "C_Cpp.errorSquiggles": "disabled",
+        "files.associations": {
+            "*.json": "json",
+            ".meowkey": "code-text-binary",
+            ".eideignore": "ignore",
+            "*.a51": "a51",
+            "*.h": "c",
+            "*.c": "c",
+            "*.hxx": "cpp",
+            "*.hpp": "cpp",
+            "*.c++": "cpp",
+            "*.cpp": "cpp",
+            "*.cxx": "cpp",
+            "*.cc": "cpp",
+            "__external_threading": "cpp",
+            "__verbose_abort": "cpp",
+            "array": "cpp",
+            "cctype": "cpp",
+            "cmath": "cpp",
+            "cstddef": "cpp",
+            "cstdint": "cpp",
+            "cstdlib": "cpp",
+            "cstring": "cpp",
+            "ctime": "cpp",
+            "cwchar": "cpp",
+            "cwctype": "cpp",
+            "execution": "cpp",
+            "memory": "cpp",
+            "initializer_list": "cpp",
+            "iosfwd": "cpp",
+            "limits": "cpp",
+            "new": "cpp",
+            "optional": "cpp",
+            "ratio": "cpp",
+            "stdexcept": "cpp",
+            "tuple": "cpp",
+            "typeinfo": "cpp",
+            "variant": "cpp",
+            "algorithm": "cpp",
+            "type_traits": "cpp"
+        },
+        "[yaml]": {
+            "editor.insertSpaces": true,
+            "editor.tabSize": 4,
+            "editor.autoIndent": "advanced"
+        },
+        "EIDE.OpenOCD.ExePath": "${workspaceFolder}/openocd/bin/openocd.exe",
+    },
+    "extensions": {
+        "recommendations": [
+            "cl.eide",
+            "keroc.hex-fmt",
+            "xiaoyongdong.srecord",
+            "hars.cppsnippets",
+            "zixuanwang.linkerscript",
+            "redhat.vscode-yaml",
+            "IBM.output-colorizer",
+            "cschlosser.doxdocgen",
+            "ms-vscode.vscode-serial-monitor",
+            "alefragnani.project-manager",
+            "dan-c-underwood.arm",
+            "marus25.cortex-debug"
+        ]
+    }
+}

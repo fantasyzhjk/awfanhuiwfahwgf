@@ -1,0 +1,26 @@
+{
+    "version": 3,
+    "beforeBuildTasks": [],
+    "afterBuildTasks": [],
+    "global": {
+        "output-debug-info": "enable"
+    },
+    "c/cpp-compiler": {
+        "optimization": "level-image-size",
+        "language-c": "c11",
+        "language-cpp": "c++11",
+        "warnings": "unspecified",
+        "short-enums#wchar": true,
+        "link-time-optimization": true,
+        "one-elf-section-per-function": true,
+        "use-rtti": true,
+        "misc-controls": "-Wall"
+    },
+    "asm-compiler": {
+        "$use": "asm-auto"
+    },
+    "linker": {
+        "output-format": "elf",
+        "misc-controls": "--diag_suppress=L6329"
+    }
+}

@@ -26,6 +26,11 @@
 #include "hid/hid_iap_class.h"
 #include "string.h"
 #include "at32f402_405_board.h"
+#include "gpio.hpp"
+#include "spi.hpp"
+#include "usbd_core.h"
+#include "usb_core.h"
+
 
 /** @addtogroup UTILITIES_examples
   * @{
@@ -48,6 +53,9 @@ iap_result_type iap_data_write(uint8_t *pdata, uint32_t len);
 void iap_jump(void);
 void iap_respond(uint8_t *res_buf, uint16_t iap_cmd, uint16_t result);
 
+extern volatile uint32_t usb_init_flag;
+extern otg_core_type otg_core_struct;
+
 
 /**
   * @brief  jump to app
@@ -57,28 +65,44 @@ void iap_respond(uint8_t *res_buf, uint16_t iap_cmd, uint16_t result);
 [[clang::optnone]]
 void __attribute__((optnone)) jump_to_app(uint32_t address) 
 {
-  uint32_t stkptr, jumpaddr;
-  stkptr = *(uint32_t *)address;
-  jumpaddr = *(uint32_t *)(address + sizeof(uint32_t));
+  volatile uint32_t stkptr, jumpaddr;
+  stkptr = *(volatile uint32_t *)address;
+  jumpaddr = *(volatile uint32_t *)(address + sizeof(uint32_t));
 
   /* disable nvic irq and periph clock, clear pending */
+  // gpio_deinit_PB();
+  // spi_deinit_2();
 
-  // todo: 把gpio和spi的关了
-  nvic_irq_disable(OTG_IRQ);
+  if (((*(volatile uint32_t*)address) & 0x2FFE0000 ) != 0x20000000) return;
 
-  __NVIC_ClearPendingIRQ(OTG_IRQ);
+  if (usb_init_flag) {
+    /* set device disconnect */
+    usbd_disconnect(&otg_core_struct.dev);
 
-  crm_periph_clock_enable(OTG_CLOCK, FALSE);
+    /* disable usb global interrupt */
+    usb_interrupt_disable(otg_core_struct.usb_reg);
 
-  crm_periph_reset(CRM_OTGFS1_PERIPH_RESET, TRUE);
-  crm_periph_reset(CRM_OTGFS1_PERIPH_RESET, FALSE);
+    delay_ms(25);
+
+    // nvic_irq_disable(OTG_IRQ);
+
+    // __NVIC_ClearPendingIRQ(OTG_IRQ);
+
+    // crm_periph_clock_enable(OTG_CLOCK, FALSE);
+
+    // crm_periph_reset(CRM_OTGHS_PERIPH_RESET, TRUE);
+    // crm_periph_reset(CRM_OTGHS_PERIPH_RESET, FALSE);
+  }
+
+  __disable_irq();
+
   
-  crm_periph_reset(CRM_OTGHS_PERIPH_RESET, TRUE);
-  crm_periph_reset(CRM_OTGHS_PERIPH_RESET, FALSE);
 
-  __set_MSP(stkptr);
+  __set_MSP(*(volatile uint32_t*)stkptr);
   pftarget = (void (*) (void))jumpaddr;
   pftarget();
+
+  while(1);
 }
 
 /**

@@ -28,6 +28,8 @@ void usb_low_power_wakeup_config(void);
 void system_clock_recover(void);
 void button_exint_init(void);
 
+volatile uint32_t usb_init_flag = false;
+
 /**
  * @brief  main function.
  * @param  none
@@ -40,11 +42,14 @@ int main(void)
     system_clock_config();
 
     // gpio和spi的初始化
-    // gpio_init();
-    // spi2_init();
-    // 这个如果启用了后，在跳转之前记得把中断和时钟关了
+    // board_gpio_init();
+
+    // board_spi2_init();
 
     iap_init();
+
+    delay_init();
+
 
     // 跳转
     if(iap_get_upgrade_flag() == IAP_SUCCESS)
@@ -54,11 +59,10 @@ int main(void)
 
     // 非跳转，正常初始化设备
 
-    at32_board_init();
 
-    crm_clocks_freq_get(&crm_clocks_freq_struct);
+    // crm_clocks_freq_get(&crm_clocks_freq_struct);
 
-    uart_print_init(115200);
+    // uart_print_init(115200);
 
     /* usb gpio config */
     usb_gpio_config();
@@ -113,8 +117,10 @@ int main(void)
               &hid_iap_class_handler,
               &hid_iap_desc_handler);
 
+    usb_init_flag = 1;
 
-    printf("device init finished\n");
+
+    // printf("device init finished\n");
 
     while (1) {
         iap_loop();

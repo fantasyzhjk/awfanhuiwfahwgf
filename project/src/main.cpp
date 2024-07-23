@@ -9,7 +9,7 @@
 #include "hid_iap_user.h"
 #include "utils.hpp"
 #include "gpio.hpp"
-#include "spi.hpp"
+#include "ws8212b.hpp"
 
 /** @addtogroup AT32F405_periph_examples
  * @{
@@ -28,7 +28,9 @@ void usb_low_power_wakeup_config(void);
 void system_clock_recover(void);
 void button_exint_init(void);
 
-volatile uint32_t usb_init_flag = false;
+WS2812B<1> ws2812b = WS2812B<1>();
+
+volatile uint32_t init_flag = 0;
 
 /**
  * @brief  main function.
@@ -41,26 +43,36 @@ int main(void)
 
     system_clock_config();
 
-    // gpio和spi的初始化
-    // board_gpio_init();
-
-    // board_spi2_init();
-
     iap_init();
 
-    delay_init();
+    // gpio的初始化
+    board_gpio_init();
 
+    auto bit = gpio_input_data_bit_read(GPIOB, GPIO_PINS_10);
+    if (bit != RESET) {
+        // 检查
+        if (((*(volatile uint32_t *)FLASH_APP_ADDRESS) & 0x2FFE0000) != 0x20000000) {
+            iap_clear_upgrade_flag();
+        }
 
-    // 跳转
-    if(iap_get_upgrade_flag() == IAP_SUCCESS)
-    {
-        jump_to_app(FLASH_APP_ADDRESS);
+        // 跳转
+        if(iap_get_upgrade_flag() == IAP_SUCCESS)
+        {
+            jump_to_app(FLASH_APP_ADDRESS);
+        }
     }
 
+
+    ws2812b.Init();
+    ws2812b.SetAllColor(Color::RED.toHSV().applyValue(0.5));
+    ws2812b.Refresh();
+    ws2812b.Refresh();
+    ws2812b.Refresh();
+
     // 非跳转，正常初始化设备
+    delay_init();
 
-
-    // crm_clocks_freq_get(&crm_clocks_freq_struct);
+    crm_clocks_freq_get(&crm_clocks_freq_struct);
 
     // uart_print_init(115200);
 
@@ -117,7 +129,7 @@ int main(void)
               &hid_iap_class_handler,
               &hid_iap_desc_handler);
 
-    usb_init_flag = 1;
+    init_flag = 1;
 
 
     // printf("device init finished\n");

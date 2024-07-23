@@ -26,5 +26,5 @@
 #define keyboard_config_flash_addr 0x3C800
 #define device_config_flash_addr 0x3D000
 
-#define DEVICE_ID_ADDR1 0x1FFFF7F3        //定义Artery MCU的项目型号，UID基地址 
-#define DEVICE_ID_ADDR2 0xE0042000        //定义MCU的设备型号，PID基地址
+#define IAP_UPGRADE_COMPLETE_FLAG        0x41554B57
+

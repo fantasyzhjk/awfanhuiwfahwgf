@@ -443,6 +443,24 @@ static uint16_t usbd_unicode_convert(uint8_t *string, uint8_t *unicode_buf)
   return str_len;
 }
 
+static uint16_t usbd_unicode_convert_p(uint8_t *string, uint8_t *unicode_buf)
+{
+  uint16_t str_len = 0, id_pos = 2;
+  uint8_t *tmp_str = string;
+
+  while(*tmp_str != '\0')
+  {
+    str_len ++;
+    unicode_buf[id_pos ++] = *tmp_str ++;
+    unicode_buf[id_pos ++] = 0x00;
+  }
+
+  str_len = str_len * 2;
+
+  return str_len;
+}
+
+
 /**
   * @brief  usb int convert to unicode
   * @param  value: int value
@@ -490,6 +508,8 @@ static void get_serial_num(void)
   {
     usbd_int_to_unicode (serial0, &g_string_serial[2] ,8);
     usbd_int_to_unicode (serial1, &g_string_serial[18] ,4);
+    usbd_unicode_convert_p((uint8_t *)"FB01", &g_string_serial[24]);
+    // todo: fb01可修改
   }
 }
 

@@ -43,6 +43,8 @@ extern "C" {
 #define FLASH_APP_ADDRESS                0x08008000
 
 void iap_init(void);
+void iap_clear_upgrade_flag(void);
+void iap_set_upgrade_flag(void);
 iap_result_type iap_get_upgrade_flag(void);
 void iap_loop(void);
 void jump_to_app(uint32_t address);

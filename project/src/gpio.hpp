@@ -13,10 +13,9 @@ void board_gpio_init(void)
     gpio_bits_reset(GPIOB, GPIO_PINS_10);
 
     gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_MODERATE;
-    gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
-    gpio_init_struct.gpio_mode = GPIO_MODE_OUTPUT;
+    gpio_init_struct.gpio_mode = GPIO_MODE_INPUT;
     gpio_init_struct.gpio_pins = GPIO_PINS_10;
-    gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+    gpio_init_struct.gpio_pull = GPIO_PULL_UP;
     gpio_init(GPIOB, &gpio_init_struct);
 }
 

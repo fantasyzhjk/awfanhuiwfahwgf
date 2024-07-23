@@ -73,7 +73,6 @@ extern "C" {
 #define IAP_CMD_GET                      0x5AA7
 
 #define HID_IAP_BUFFER_LEN               1024
-#define IAP_UPGRADE_COMPLETE_FLAG        0x41544B38
 #define CONVERT_ENDIAN(dwValue)          ((dwValue >> 24) | ((dwValue >> 8) & 0xFF00) | \
                                          ((dwValue << 8) & 0xFF0000) | (dwValue << 24) )
 
